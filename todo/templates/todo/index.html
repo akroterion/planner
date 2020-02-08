@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>Kategorie</p>
+<ul>
+    {% for category in categories %}
+    <li><a href="{% url 'category_details' category.pk %}">{{ category.name }}</a> </li>
+    {% endfor %}
+</ul>
+<ul>
+    <li class="container"><a href="{% url 'category_create' %}">Stwórz kategorię</a></li>
+</ul>
+<ul>
+    <li class="container"><a href="{% url 'project_create' %}">Stwórz projekt</a></li>
+</ul>
+<ul>
+    <li class="container"><a href="{% url 'task_create' %}">Stwórz Zadanie</a></li>
+</ul>
+{% endblock %}

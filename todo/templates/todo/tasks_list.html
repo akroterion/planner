@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>Lista zadań</p>
+{% for task in object_list %}
+{{ task.desc }} - {{ task.due_date }}<br>
+
+{% endfor %}
+{% endblock %}
+
+
+
+
+
+
+
+
+<!-- self.desc} {self.due_date} {self.category} {self.done_task -->
+
+<!-- <div class="container">
+        <ul>
+            {% for task in tasks %}
+            <li>{{ tasks.desc }}</li>
+            <li>{{ tasks.due_date }}</li>
+    
+    
+            {% endfor %}
+        </ul>
+    </div> -->

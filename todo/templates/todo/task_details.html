@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>Szczegóły Zadania:</p>
+<ul>
+    <li><b> Tytuł zadania:</b> {{ task.desc }} </li>
+    <li><b>Data zadania:</b> {{ task.due_date }}</li>
+    <li><b>Projekt zadania:</b>
+        <ul>
+            {% for project in task.projects.all %}
+            <li>{{ project }}</li>
+            {% endfor %}
+        </ul>
+    </li>
+    <li><b>Kategoria:</b> {{ task.category|default:"&mdash;" }}</li>
+    <!-- {% for task in object.task_set.all %}
+<li>{{ task }}</li> -->
+</ul>
+{% endfor %}
+
+{% endblock %}

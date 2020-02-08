@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<p>Szczegóły kategorii</p>
+<ul>{{ category.name }}</ul>
+<ul>
+    {% for task in object.task_set.all %}
+    <li>{{ task }}</li>
+    {% endfor %}
+
+</ul>
+{% endblock %}

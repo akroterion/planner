@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{% static 'todo/style.css' %}">
+    <title>Marcin &mdash; {{ title }}</title>
+</head>
+
+<body>
+    <h1>{{ title }}</h1>
+    <nav>
+        Nawigacja:
+        <ul>
+            <li><a href="{% url 'index' %}"> Strona GŁówna(FBV)</a> </li>
+            <li class="container"><a href="{% url 'projects' %}">Projekty</a></li>
+            {% if user.is_authenticated %}
+            <li class="container">Hello, {{ user.first_name}}</li>
+            <li class="container"><a href="{% url 'tasks_list' %}">Lista zadań</a></li>
+            <li class="container"><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+            <li class="container"><a href="{% url 'login' %}">Login</a></li>
+
+            {% endif %}
+        </ul>
+    </nav>
+
+    {% block content %}{% endblock %}
+
+</body>
+
+</html>
